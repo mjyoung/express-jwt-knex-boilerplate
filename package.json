@@ -2,6 +2,7 @@
   "name": "test-app-backend",
   "description": "Backend for Test App",
   "version": "0.0.0",
+  "author": "Michael Young <michaeljy@gmail.com>",
   "private": true,
   "engines": {
     "node": "6.x"
