@@ -1,0 +1,12 @@
+{
+  "delay": 300,
+  "ignore": [
+    ".git",
+    "node_modules",
+    "build"
+  ],
+  "verbose": true,
+  "watch": [
+    "server/"
+  ]
+}
