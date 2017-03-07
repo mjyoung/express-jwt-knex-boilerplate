@@ -17,6 +17,8 @@
     "lint": "npm run lint:eslint",
     "production-build": "npm run build && npm run clean:node_modules && npm install --production",
     "production": "NODE_ENV=production node ./build/index.js",
+    "makemig:data": "knex migrate:make -- data",
+    "makemig:schema": "knex migrate:make -- schema",
     "migrate": "knex migrate:latest --env ",
     "migrate:data": "npm run migrate -- data",
     "migrate:schema": "npm run migrate -- schema",
