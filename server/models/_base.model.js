@@ -16,8 +16,6 @@ class BaseModel extends Model {
   static get RelatedQueryBuilder() {
     return CustomQueryBuilder;
   }
-  // static QueryBuilder = CustomQueryBuilder;
-  // static RelatedQueryBuilder = CustomQueryBuilder;
 }
 
 export default BaseModel;
