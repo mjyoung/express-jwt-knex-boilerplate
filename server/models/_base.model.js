@@ -1,4 +1,5 @@
 import { Model } from 'objection';
+import CustomQueryBuilder from './_custom-query-builder';
 
 class BaseModel extends Model {
   $beforeInsert() {
@@ -8,6 +9,15 @@ class BaseModel extends Model {
   $beforeUpdate() {
     this.updated_at = new Date().toISOString();
   }
+
+  static get QueryBuilder() {
+    return CustomQueryBuilder;
+  }
+  static get RelatedQueryBuilder() {
+    return CustomQueryBuilder;
+  }
+  // static QueryBuilder = CustomQueryBuilder;
+  // static RelatedQueryBuilder = CustomQueryBuilder;
 }
 
 export default BaseModel;
