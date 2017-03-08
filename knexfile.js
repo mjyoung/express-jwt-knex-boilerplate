@@ -10,9 +10,6 @@ const baseEnv = {
     password: process.env.DB_PASSWORD || null,
     database: process.env.DB_NAME || 'test-app_development',
     multipleStatements: true
-  },
-  seeds: {
-    directory: path.join(__dirname, '/db/seeds')
   }
 };
 
@@ -34,6 +31,20 @@ module.exports = {
     migrations: {
       directory: path.join(__dirname, '/db/migrations_data'),
       tableName: 'migration_data_version'
+    }
+  }),
+  seed: _.merge({}, baseEnv, {
+    seeds: {
+      directory: path.join(__dirname, '/db/seeds')
+    }
+  }),
+  reset: _.merge({}, baseEnv, {
+    migrations: {
+      directory: path.join(__dirname, '/db/migrations_schema'),
+      tableName: 'migration_schema_version'
+    },
+    seeds: {
+      directory: path.join(__dirname, '/db/scripts')
     }
   })
 };

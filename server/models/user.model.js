@@ -1,6 +1,6 @@
-import { Model } from 'objection';
+import BaseModel from './_base.model';
 
-class User extends Model {
+class User extends BaseModel {
   static get tableName() {
     return 'users';
   }
