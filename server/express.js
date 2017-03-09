@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import bodyParser from 'body-parser';
 import compression from 'compression';
+import cors from 'cors';
 import express from 'express';
 import glob from 'glob';
 import { Model } from 'objection';
@@ -54,6 +55,9 @@ passport.use(strategy);
 
 // Create the express application
 const app = express();
+
+// Enable all CORS requests
+app.use(cors());
 
 // use express' body parser to access body elements later
 app.use(bodyParser.json());
