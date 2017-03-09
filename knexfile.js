@@ -38,7 +38,7 @@ module.exports = {
       directory: path.join(__dirname, '/db/seeds')
     }
   }),
-  reset: _.merge({}, baseEnv, {
+  clean: _.merge({}, baseEnv, {
     migrations: {
       directory: path.join(__dirname, '/db/migrations_schema'),
       tableName: 'migration_schema_version'
