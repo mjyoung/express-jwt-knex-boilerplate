@@ -9,8 +9,8 @@ import User from '../../models/user.model';
 const PASSWORD_SALT_ROUNDS = 10;
 
 export const login = (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password) {
+  const { reqUsername, password } = req.body;
+  if (!reqUsername || !password) {
     return res.status(400).send({
       error: 'username and password required'
     });
@@ -19,22 +19,23 @@ export const login = (req, res) => {
   return User
     .query()
     .where({
-      username
+      username: reqUsername
     })
     .then(async (users) => {
       const user = users.length > 0 ? users[0] : null;
       if (user) {
+        const { id, username } = user;
         const passwordMatches = await bcrypt.compare(password, user.password);
 
         if (passwordMatches) {
           const token = jwt.sign({
-            id: user.id
+            subject: id
           }, config.auth.secret);
           return res
             .cookie('test_app_token', token)
             .send({
               data: {
-                username: user.username,
+                username,
                 token
               }
             });
