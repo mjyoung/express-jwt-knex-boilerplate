@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
@@ -64,6 +65,8 @@ app.use(bodyParser.json());
 
 // gzip all the things
 app.use(compression());
+
+app.use(cookieParser());
 
 // --------------------------
 // API
