@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
@@ -52,7 +51,11 @@ passport.use(strategy);
 const app = express();
 
 // Enable all CORS requests
-app.use(cors());
+const corsOptions = {
+  origin: true,
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 // use express' body parser to access body elements later
 app.use(bodyParser.json());
